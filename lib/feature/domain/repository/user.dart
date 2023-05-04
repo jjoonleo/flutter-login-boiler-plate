@@ -13,4 +13,7 @@ abstract class UserRepository {
   Future<Either<Failure, User>> getInfo();
 
   Future<Either<Failure, User>> signup(SignupParams signupParams);
+
+  Future<void> logout();
+
 }

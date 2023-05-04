@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:login_boiler_plate/core/core.dart';
 import 'package:login_boiler_plate/feature/data/datasource/auth_remote.dart';
 import 'package:login_boiler_plate/feature/data/datasource/secure_storage.dart';
@@ -32,10 +33,13 @@ class UserRepositoryImpl implements UserRepository {
   Future<Either<Failure, User>> getInfo() async {
     String? token = await secureStorage.getToken();
     if (token == null) {
-      return Left(
-        NoDataFailure()
-      );
+      return Left(NoDataFailure());
     }
     return authRemoteDatasource.getInfo(token);
+  }
+
+  @override
+  Future<void> logout() async {
+    await secureStorage.deleteToken();
   }
 }
