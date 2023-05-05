@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 
 import '../../../core/core.dart';
 import '../../domain/model/user.dart';
