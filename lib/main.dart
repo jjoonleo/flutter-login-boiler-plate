@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:login_boiler_plate/feature/domain/model/user.dart';
-import 'package:login_boiler_plate/feature/presentation/view/login.dart';
+import 'package:login_boiler_plate/feature/user/user.dart';
+
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:login_boiler_plate/feature/presentation/viewmodel/module.dart';
 import 'package:login_boiler_plate/protected_page.dart';
-import 'package:login_boiler_plate/feature/presentation/view/signup.dart';
 import 'theme.dart';
 import 'color_schemes.dart';
 

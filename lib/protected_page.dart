@@ -3,8 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-
-import 'feature/presentation/viewmodel/module.dart';
+import 'package:login_boiler_plate/feature/user/user.dart';
 
 class ProtectedPage extends ConsumerStatefulWidget {
   const ProtectedPage({super.key});
