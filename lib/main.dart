@@ -79,12 +79,12 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
                     MaterialPageRoute(
                         builder: (context) => const ProtectedPage()));
               },
-              child: Text("go to protected page")),
+              child: const Text("go to protected page")),
           FilledButton(
               onPressed: () async {
                 await ref.read(userModel).logout();
               },
-              child: Text("logout"))
+              child: const Text("logout"))
         ]),
       ),
     );
