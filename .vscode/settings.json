@@ -11,5 +11,6 @@
     "**/Thumbs.db": true,
     "**/*.freezed.dart": true,
     "**/*.g.dart": true
-  }
+  },
+  "cmake.sourceDirectory": "C:/Users/jjoon/Documents/code/flutter/flutter_login_boiler_plate/windows/flutter"
 }

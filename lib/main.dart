@@ -6,7 +6,6 @@ import 'package:login_boiler_plate/feature/user/user.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:login_boiler_plate/protected_page.dart';
 import 'theme.dart';
-import 'color_schemes.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -40,12 +39,10 @@ class MyHomePage extends ConsumerStatefulWidget {
 }
 
 class _MyHomePageState extends ConsumerState<MyHomePage> {
-  static final storage = FlutterSecureStorage();
 
   checkToken() async {
-    String token = await storage.read(key: "token") ?? "";
     await ref.read(userModel).getUserInfo();
-    print(ref.read(userState).toString());
+    debugPrint(ref.read(userState).toString());
   }
 
   @override
@@ -74,7 +71,7 @@ class _MyHomePageState extends ConsumerState<MyHomePage> {
             },
             child: const Text("signup"),
           ),
-          FilledButton(onPressed: checkToken, child: Text("check token")),
+          FilledButton(onPressed: checkToken, child: const Text("check token")),
           FilledButton(
               onPressed: () {
                 Navigator.push(

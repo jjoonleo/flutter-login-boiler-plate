@@ -3,7 +3,7 @@ import 'package:login_boiler_plate/feature/user/user.dart';
 
 
 class SecureStorageImpl implements SecureStorage {
-  final storage = FlutterSecureStorage();
+  final storage = const FlutterSecureStorage();
 
   SecureStorageImpl();
 

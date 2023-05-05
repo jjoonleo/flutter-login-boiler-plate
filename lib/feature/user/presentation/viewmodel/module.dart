@@ -17,14 +17,14 @@ class UserStateNotifier extends StateNotifier<UserState> {
   late final getInfoUseCase = ref.read(getInfoProvider);
 
   Future<void> getUserInfo() async {
-    state = UserState.notLoggedIn();
+    state = const UserState.notLoggedIn();
 
     final user = await getInfoUseCase.execute();
     user.fold((l) {
       if (l is ServerFailure) {
         state = UserState.error(message: l.message ?? "");
       } else if (l is NoDataFailure) {
-        state = UserState.notLoggedIn();
+        state = const UserState.notLoggedIn();
       }
     }, (r) {
       state = UserState.loggedIn(r);

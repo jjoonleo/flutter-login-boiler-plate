@@ -16,8 +16,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   bool emailValidated = true;
   bool passwordValidated = true;
   String text = "";
-  FocusNode _emailFocusNode = FocusNode();
-  FocusNode _passwordFocusNode = FocusNode();
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
   late final usermodel = ref.read(userModel);
   late final user = ref.watch(userState);
   static final storage = FlutterSecureStorage();
@@ -93,13 +93,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         });
   }
 
-  _checkToken() async {
-    String token = await storage.read(key: "token") ?? "";
-    print("token" + token);
-    setState(() {
-      text = token;
-    });
-  }
 
   _buildDialog(title, msg) {
     return showDialog<String>(
@@ -119,16 +112,16 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 children: <Widget>[
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
                     msg,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 14,
                     ),
                   ),
@@ -160,19 +153,19 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     final theme = Theme.of(context);
 
     var inputDecoration = InputDecoration(
-      enabledBorder: OutlineInputBorder(
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      errorBorder: OutlineInputBorder(
+      errorBorder: const OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
-      focusedErrorBorder: OutlineInputBorder(
+      focusedErrorBorder: const OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(Radius.circular(25)),
       ),
@@ -186,7 +179,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
         fontSize: 15,
         color: theme.colorScheme.error,
       ),
-      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
     );
 
     return Scaffold(
@@ -223,7 +216,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     cursorColor: theme.colorScheme.onPrimaryContainer,
                     textInputAction: TextInputAction.next,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 17,
                   ),
                   TextField(
@@ -242,13 +235,13 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     obscureText: true,
                     controller: password,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 50,
                   ),
                   FilledButton(
                     onPressed: _submit,
                     style: ElevatedButton.styleFrom(
-                      minimumSize: Size.fromHeight(60),
+                      minimumSize: const Size.fromHeight(60),
                     ),
                     child: Text(
                       "로그인 하기",

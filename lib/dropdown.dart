@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 
 class Dropdown extends StatefulWidget {
   const Dropdown(
@@ -15,7 +14,7 @@ class Dropdown extends StatefulWidget {
 }
 
 class _DropdownState extends State<Dropdown> {
-  int? _value = null;
+  int? _value;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class _DropdownState extends State<Dropdown> {
         onChanged: (value) {
           setState(() {
             _value = value?.toInt();
-            print(_value);
+            debugPrint(_value.toString());
           });
         },
         items: widget.options

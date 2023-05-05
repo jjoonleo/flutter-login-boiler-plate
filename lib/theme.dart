@@ -30,7 +30,6 @@ class LibraryTheme extends ThemeExtension<LibraryTheme> {
   }
 
   ThemeData _base(ColorScheme colorScheme) {
-    final isLight = colorScheme.brightness == Brightness.light;
     return ThemeData(
       useMaterial3: true,
       extensions: [this],
