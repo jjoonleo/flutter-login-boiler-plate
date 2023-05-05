@@ -15,6 +15,7 @@ class UserStateNotifier extends StateNotifier<UserState> {
 
   final Ref ref;
   late final postLoginUseCase = ref.read(postLoginProvider);
+  late final logoutUseCase = ref.read(logoutProvider);
   late final postSignupUseCase = ref.read(postSignupProvider);
   late final storeUseCase = ref.read(storeProvider);
   late final getInfoUseCase = ref.read(getInfoProvider);
@@ -47,6 +48,12 @@ class UserStateNotifier extends StateNotifier<UserState> {
       state = UserState.loggedIn(r);
       debugPrint("Succes");
     });
+  }
+
+  Future<void> logout() async {
+    state = const UserState.notLoggedIn();
+
+    logoutUseCase.execute();
   }
 
   Future<void> signup(SignupParams signupParams) async {
